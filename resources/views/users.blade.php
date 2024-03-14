@@ -1,6 +1,7 @@
 @include('template')
+@include('nav')
 <!-- resources/views/users.blade.php -->
-    <div class="container">
+    {{-- <div class="container">
         <h1>Lista de Usuarios</h1>
         <table class="table table-striped">
             <thead>
@@ -26,7 +27,6 @@
                             <td>
                                 <button onclick="mostrarInformacionCliente({{ $user->customer_id }})"></button>
                             </td>
-                            {{-- {{dd($user)}} --}}
                         </tr>
                     @endif
                         @php
@@ -36,7 +36,37 @@
                 @endforeach
             </tbody>
         </table>
-    </div>
+    </div> --}}
+
+    <section id="horizontal-pricing" class="horizontal-pricing pt-0">
+        <div class="container" data-aos="fade-up">
+                <div class="section-header">
+                    <h2>Lista de usuarios</h2>
+                </div>
+                @foreach($users as $user)
+                    @if ($user->status != 'disabled')
+                        <div class="row gy-4 pricing-item" data-aos="fade-up" data-aos-delay="100">
+                            <div class="col-lg-3 d-flex align-items-center justify-content-center">
+                                <h3>{{$user->tariff_id}}</h3>
+                            </div>
+                            <div class="col-lg-3 d-flex align-items-center justify-content-center">
+                                <p>{{ $user->description}}</p>
+                            </div>
+                            <div class="col-lg-3 d-flex align-items-center justify-content-center">
+                                <ul>
+                                <li><i class="bi bi-check"></i> ID del cliente</li>
+                                <li><i class="bi bi-check"></i>{{ $user->customer_id}}</li>
+                                </ul>
+                            </div>
+                            <div class="col-lg-3 d-flex align-items-center justify-content-center">
+                                <div class="text-center"><button onclick="mostrarInformacionCliente({{ $user->customer_id }})" class="buy-btn">Ver Cliente</button></div>
+                            </div>
+                        </div>
+                    @endif
+            @endforeach
+        </div>
+        
+    </section>
 
     <!-- resources/views/users.blade.php -->
 <script>

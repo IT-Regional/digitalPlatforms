@@ -23,7 +23,7 @@ class AdminController extends Controller
             return redirect('/');
         }else{
            //return the welcome page 
-           return view('index');  
+           return view('home');  
         }
     }
     
@@ -92,9 +92,19 @@ public function showCustomerInfo($customerId){
         'Authorization' => 'Splynx-EA (access_token=' . session('customer_token') . ')'
     ])->get('https://beesys.beenet.com.sv/api/2.0/admin/customers/customer/' . $customerId);
 
-    $customerInfo = json_decode($response->getBody()->getContents());
+    $response2 = Http::withOptions([
+        'debug' => false,
+        'verify' => false
+    ])->withHeaders([
+        'Authorization' => 'Splynx-EA (access_token=' . session('customer_token') . ')'
+    ])->get("https://beesys.beenet.com.sv/api/2.0/admin/customers/customer/$customerId/bundle-services");
 
-    return view('customer_info', compact('customerInfo'));
+
+
+    $customerInfo = json_decode($response->getBody()->getContents());
+    $bundleInfo = json_decode($response2->getBody()->getContents());
+
+    return view('customer_info', compact('customerInfo','bundleInfo'));
 }
     
 }
