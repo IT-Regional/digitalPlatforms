@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 use Session;
@@ -11,6 +12,8 @@ use Illuminate\Support\Facades\Redirect;
 use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Support\Str;
 use phpseclib\Crypt\RSA;
+use Illuminate\Pagination\LengthAwarePaginator;
+use Illuminate\Support\Collection;
 
 class AdminController extends Controller
 {
@@ -65,15 +68,35 @@ class AdminController extends Controller
     ];
 
 
-    $response = Http::withOptions([
+    /* $response = Http::withOptions([
         'debug' => false,
         'verify' => false
         ])->withHeaders([
             'Authorization' => 'Splynx-EA (access_token=' . session('customer_token') . ')'
         ])->get('https://beesys.beenet.com.sv/api/2.0/admin/customers/customer/0/recurring-services?params=' . http_build_query($search));
 
-    $users = json_decode($response->getBody()->getContents());
-    
+    $users = json_decode($response->getBody()->getContents()); */
+
+    $users = Http::withOptions([
+        'debug' => false,
+        'verify' => false
+    ])->withHeaders([
+        'Authorization' => 'Splynx-EA (access_token=' . session('customer_token') . ')'
+    ])->get('https://beesys.beenet.com.sv/api/2.0/admin/customers/customer/0/recurring-services?params=' . http_build_query($search))
+    ->json();
+
+    $page = LengthAwarePaginator::resolveCurrentPage();
+    $perPage = 10; // Cambia 10 por el número de usuarios que deseas mostrar por página
+
+    $users = collect($users);
+
+    $users = new LengthAwarePaginator(
+        $users->forPage($page, $perPage),
+        $users->count(),
+        $perPage,
+        $page,
+        ['path' => LengthAwarePaginator::resolveCurrentPath()]
+    );
 
     return view('users', compact('users'));
     
