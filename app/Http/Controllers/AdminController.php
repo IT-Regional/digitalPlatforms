@@ -68,14 +68,6 @@ class AdminController extends Controller
     ];
 
 
-    /* $response = Http::withOptions([
-        'debug' => false,
-        'verify' => false
-        ])->withHeaders([
-            'Authorization' => 'Splynx-EA (access_token=' . session('customer_token') . ')'
-        ])->get('https://beesys.beenet.com.sv/api/2.0/admin/customers/customer/0/recurring-services?params=' . http_build_query($search));
-
-    $users = json_decode($response->getBody()->getContents()); */
 
     $users = Http::withOptions([
         'debug' => false,
