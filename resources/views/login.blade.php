@@ -2,32 +2,54 @@
     <!-- ======== Preloader =========== -->
     <div class="overlay"></div>
     <!-- ======== main-wrapper start =========== -->
-    <main class="main-wrapper">
-        <div class="login">
-        <div class="login-screen">
-          <div class="app-title">
-            <h3>Inicio de Sesion</h3>
-          </div>
-          <form method="POST" action="{{ route('login') }}" id="frm_login" class="frm_login">
-                @csrf
-                <div class="login-form">
-                <div class="control-group">
-                <input type="text" class="login-field" value="" placeholder="Correo" id="login-name" name="username">
-                <label class="login-field-icon fui-user" for="login-name"></label>
+    <main>
+      <div class="container">
+        <section class="section register min-vh-100 d-flex flex-column align-items-center justify-content-center py-4">
+          <div class="container">
+            <div class="row justify-content-center">
+              <div class="col-lg-4 col-md-6 d-flex flex-column align-items-center justify-content-center">
+                <div class="d-flex justify-content-center py-4">
+                  <a href="index.html" class="logo d-flex align-items-center w-auto">
+                    <span class="d-none d-lg-block">GStreaming</span>
+                  </a>
+                </div><!-- End Logo -->
+
+                <div class="card mb-3">
+
+                  <div class="card-body">
+
+                    <form class="row g-3 needs-validation" method="POST" action="{{ route('login') }}">
+                      @csrf
+                      <div class="col-12">
+                        <label for="yourUsername" class="form-label">Correo</label>
+                        <div class="input-group has-validation">
+                          <span class="input-group-text" id="inputGroupPrepend">@</span>
+                          <input type="text" name="username" class="form-control" id="yourUsername" required>
+                          <div class="invalid-feedback">Please enter your username.</div>
+                        </div>
+                      </div>
+
+                      <div class="col-12">
+                        <label for="yourPassword" class="form-label">Contraseña</label>
+                        <input type="password" name="password" class="form-control" id="yourPassword" required>
+                        <div class="invalid-feedback">Please enter your password!</div>
+                      </div>
+                      <div class="col-12">
+                        <button class="btn btn-primary w-100" type="submit">Login</button>
+                      </div>
+                    </form>
+
+                  </div>
                 </div>
 
-                <div class="control-group">
-                <input type="password" class="login-field" value="" placeholder="password" id="login-pass" name="password">
-                <label class="login-field-icon fui-lock" for="login-pass" ></label>
-                </div>
-                <button class="btn">
-                    Entrar
-                </button>
-          </form>
+              </div>
+            </div>
           </div>
-        </div>
+
+        </section>
+
       </div>
-    </main>
+  </main>
 
   <style>
     .login {

@@ -121,5 +121,33 @@ public function showCustomerInfo($customerId){
 
     return view('customer_info', compact('customerInfo','bundleInfo'));
 }
+
+public function numberUsers(Request $request){
+    $auth = session('customer_info');
+
+    if (is_null($auth)) {
+        return redirect('/');
+    } else {
+        // Hacer una solicitud a la API para obtener la lista de usuarios activos
+        $response = Http::withOptions([
+            'debug' => false,
+            'verify' => false
+        ])->withHeaders([
+            'Authorization' => 'Splynx-EA (access_token=' . session('customer_token') . ')'
+        ])->get('https://beesys.beenet.com.sv/api/2.0/admin/customers/customer/0/recurring-services?params=' . http_build_query([
+            'main_attributes' => [
+                'status' => 'active'
+            ]
+        ]));
+
+        // Decodificar la respuesta JSON
+        $users = json_decode($response->getBody()->getContents());
+
+        // Contar el número de usuarios activos
+        $activeUsersCount = count($users);
+
+        return view('home', compact('activeUsersCount'));
+    }
+}
     
 }

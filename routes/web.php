@@ -23,6 +23,6 @@ use App\Http\Controllers\AdminController;
  //Rutas principales
 Route::get('/', function () { return view('login'); });
 Route::post('/login', [LoginController::class, 'login'])-> name('login');
-Route::get('/home', [AdminController::class, 'home']) -> name('home');
+Route::get('/home', [AdminController::class, 'numberUsers']) -> name('home');
 Route::get('/users', [AdminController::class,'customers'])->name('users');
 Route::get('/customer_info/{customerId}',[AdminController::class,'showCustomerInfo'])->name('customer_info');

@@ -1,34 +1,41 @@
 @include('template')
 @include('nav')
 <!-- resources/views/users.blade.php -->
+<br>
+<br>
+<br>
+<br>
+<br>
     <section id="horizontal-pricing" class="horizontal-pricing pt-0">
-        <div class="container" data-aos="fade-up">
-                <div class="section-header">
-                    <h2>Lista de usuarios</h2>
-                </div>
-                @foreach($users as $user)
-                        {{-- @if ($user['status'] != "disabled") --}}
-                            <div class="row gy-4 pricing-item" data-aos="fade-up" data-aos-delay="100">
-                                <div class="col-lg-3 d-flex align-items-center justify-content-center">
-                                    <h3>{{$user['tariff_id']}}</h3>
-                                </div>
-                                <div class="col-lg-3 d-flex align-items-center justify-content-center">
-                                    <p>{{ $user['description']}}</p>
-                                </div>
-                                <div class="col-lg-3 d-flex align-items-center justify-content-center">
-                                    <ul>
-                                        <li><i class="bi bi-check"></i> ID del cliente</li>
-                                        <li><i class="bi bi-check"></i>{{ $user['customer_id']}}</li>
-                                    </ul>
-                                </div>
-                                <div class="col-lg-3 d-flex align-items-center justify-content-center">
-                                    <div class="text-center"><button onclick="mostrarInformacionCliente({{ $user['customer_id'] }})" class="buy-btn">Ver Cliente</button></div>
-                                </div>
-                            </div>
-                        {{-- @endif --}}
-                @endforeach
+        <div class="container">
+            <table class="table data">
+                <thead>
+                    <tr>
+                        <th>
+                            Servicio Recurrente
+                        </th>
+                        <th>Id del Cliente.</th>
+                        <th>Ver Cliente</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach($users as $user)
+                        <tr>
+                            <td>{{ $user['description']}}</td>
+                            <td>{{ $user['customer_id']}}</td>
+                            <td>
+                                <button onclick="mostrarInformacionCliente({{ $user['customer_id'] }})" type="button" class="btn btn-primary">
+                                    <i class="ri-account-circle-line"></i>Ver Cliente
+                                </button>
+                            </td>
+                        </tr>
+                    @endforeach
+                </tbody>
+            </table>
+        </div>
     </section>
-    <div>
+
+    <div class="container">
         {{ $users->links() }}
     </div>
 

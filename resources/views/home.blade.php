@@ -3,185 +3,167 @@
   <!-- End Header -->
 
   <!-- ======= Hero Section ======= -->
-  <section id="hero" class="hero d-flex align-items-center">
-    <div class="container">
-      <div class="row gy-4 d-flex justify-content-between">
-        <div class="col-lg-6 order-2 order-lg-1 d-flex flex-column justify-content-center">
-          <h2 data-aos="fade-up">GStreaming</h2>
-          <p data-aos="fade-up" data-aos-delay="100">Administrador para verificar el cumplimiento de las lincencias de streaming</p>
+  <!-- End Header -->
 
-          <div class="row gy-4" data-aos="fade-up" data-aos-delay="400">
+  <!-- ======= Sidebar ======= -->
+  <aside id="sidebar" class="sidebar">
 
-            <div class="col-lg-3 col-6">
-              <div class="stats-item text-center w-100 h-100">
-                <span data-purecounter-start="0" data-purecounter-end="232" data-purecounter-duration="1" class="purecounter"></span>
-                <p>Netflix</p>
-              </div>
-            </div><!-- End Stats Item -->
+    <ul class="sidebar-nav" id="sidebar-nav">
 
-            <div class="col-lg-3 col-6">
-              <div class="stats-item text-center w-100 h-100">
-                <span data-purecounter-start="0" data-purecounter-end="521" data-purecounter-duration="1" class="purecounter"></span>
-                <p>VIX</p>
-              </div>
-            </div><!-- End Stats Item -->
+      <li class="nav-item">
+        <a class="nav-link " href="{{route('home')}}">
+          <i class="bi bi-grid"></i>
+          <span>Inicio</span>
+        </a>
+      </li><!-- End Dashboard Nav -->
 
-            <div class="col-lg-3 col-6">
-              <div class="stats-item text-center w-100 h-100">
-                <span data-purecounter-start="0" data-purecounter-end="1453" data-purecounter-duration="1" class="purecounter"></span>
-                <p>Prime Video</p>
-              </div>
-            </div><!-- End Stats Item -->
-
-            <div class="col-lg-3 col-6">
-              <div class="stats-item text-center w-100 h-100">
-                <span data-purecounter-start="0" data-purecounter-end="32" data-purecounter-duration="1" class="purecounter"></span>
-                <p>Paramount+</p>
-              </div>
-            </div><!-- End Stats Item -->
-
-          </div>
-        </div>
-
-        <div class="col-lg-5 order-1 order-lg-2 hero-img" data-aos="zoom-out">
-          <img src="assets/img/hero-img.svg" class="img-fluid mb-3 mb-lg-0" alt="">
-        </div>
-
-      </div>
-    </div>
-  </section><!-- End Hero Section -->
-
-  <main id="main">
-
-    <!-- ======= Featured Services Section ======= -->
-    <!-- End Featured Services Section -->
-
-    <!-- ======= About Us Section ======= -->
-    <!-- End About Us Section -->
-
-    <!-- ======= Services Section ======= -->
-    <section id="service" class="services pt-0">
-      <div class="container" data-aos="fade-up">
-
-        <div class="section-header">
+      <li class="nav-item">
+        <a class="nav-link " href="index.html">
+          <i class="bi bi-grid"></i>
           <span>Plataformas</span>
-          <h2>Plataformas</h2>
+        </a>
+      </li>
 
-        </div>
+      <li class="nav-item">
+        <a class="nav-link " href="{{route('users')}}">
+          <i class="bi bi-grid"></i>
+          <span>Clientes</span>
+        </a>
+      </li>
+      <!-- End Components Nav -->
 
-        <div class="row gy-4">
+      <!-- End Forms Nav -->
 
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
-            <div class="card">
-              <div class="card-img">
-                <img src="assets/img/storage-service.jpg" alt="" class="img-fluid">
+      <!-- End Charts Nav -->
+
+      <!-- End Icons Nav -->
+
+      <!-- End Profile Page Nav -->
+
+      <!-- End F.A.Q Page Nav -->
+
+      <!-- End Contact Page Nav -->
+
+      <!-- End Register Page Nav -->
+
+      <!-- End Login Page Nav -->
+
+      <!-- End Error 404 Page Nav -->
+
+      <!-- End Blank Page Nav -->
+
+    </ul>
+
+  </aside><!-- End Sidebar-->
+
+  <main id="main" class="main">
+
+    <div class="pagetitle">
+      <h1>Dashboard</h1>
+    </div><!-- End Page Title -->
+
+    <section class="section dashboard">
+      <div class="row">
+
+        <!-- Left side columns -->
+        <div class="col-lg-20">
+          <div class="row">
+
+            <!-- Sales Card -->
+            <div class="col-xxl-4 col-md-6">
+              <div class="card info-card customers-card">
+
+                <div class="card-body">
+                  <h5 class="card-title">Clientes <span>| Activos</span></h5>
+
+                  <div class="d-flex align-items-center">
+                    <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                      <i class="bi bi-people"></i>
+                    </div>
+                    <div class="ps-3">
+                      <h6>{{ $activeUsersCount }}</h6>
+
+                    </div>
+                  </div>
+                </div>
+
               </div>
-              <h3><a href="service-details.html" class="stretched-link">Storage</a></h3>
-              <p>Cumque eos in qui numquam. Aut aspernatur perferendis sed atque quia voluptas quisquam repellendus temporibus itaqueofficiis odit</p>
-            </div>
-          </div><!-- End Card Item -->
+            </div><!-- End Sales Card -->
 
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
-            <div class="card">
-              <div class="card-img">
-                <img src="assets/img/logistics-service.jpg" alt="" class="img-fluid">
+            <!-- Revenue Card -->
+            <div class="col-xxl-4 col-md-6">
+              <div class="card info-card revenue-card">
+
+                <div class="card-body">
+                  <h5 class="card-title">Perfiles Disponibles</h5>
+
+                  <div class="d-flex align-items-center">
+                    <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                      <i class="bi bi-currency-dollar"></i>
+                    </div>
+                    <div class="ps-3">
+                      <h6>$3,264</h6>
+                    </div>
+                  </div>
+                </div>
+
               </div>
-              <h3><a href="service-details.html" class="stretched-link">Logistics</a></h3>
-              <p>Asperiores provident dolor accusamus pariatur dolore nam id audantium ut et iure incidunt molestiae dolor ipsam ducimus occaecati nisi</p>
-            </div>
-          </div><!-- End Card Item -->
+            </div><!-- End Revenue Card -->
 
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
-            <div class="card">
-              <div class="card-img">
-                <img src="assets/img/cargo-service.jpg" alt="" class="img-fluid">
+            <div class="col-xxl-4 col-md-6">
+              <div class="card info-card revenue-card">
+
+                <div class="card-body">
+                  <h5 class="card-title">Plataformas Disponibles</h5>
+
+                  <div class="d-flex align-items-center">
+                    <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                      <i class="bi bi-currency-dollar"></i>
+                    </div>
+                    <div class="ps-3">
+                      <h6>$3,264</h6>
+                    </div>
+                  </div>
+                </div>
+
               </div>
-              <h3><a href="service-details.html" class="stretched-link">Cargo</a></h3>
-              <p>Dicta quam similique quia architecto eos nisi aut ratione aut ipsum reiciendis sit doloremque oluptatem aut et molestiae ut et nihil</p>
             </div>
-          </div><!-- End Card Item -->
 
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
-            <div class="card">
-              <div class="card-img">
-                <img src="assets/img/trucking-service.jpg" alt="" class="img-fluid">
-              </div>
-              <h3><a href="service-details.html" class="stretched-link">Trucking</a></h3>
-              <p>Dicta quam similique quia architecto eos nisi aut ratione aut ipsum reiciendis sit doloremque oluptatem aut et molestiae ut et nihil</p>
-            </div>
-          </div><!-- End Card Item -->
+            <!-- Customers Card -->
+            <!-- End Customers Card -->
 
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500">
-            <div class="card">
-              <div class="card-img">
-                <img src="assets/img/packaging-service.jpg" alt="" class="img-fluid">
-              </div>
-              <h3><a href="service-details.html" class="stretched-link">Packaging</a></h3>
-              <p>Illo consequuntur quisquam delectus praesentium modi dignissimos facere vel cum onsequuntur maiores beatae consequatur magni voluptates</p>
-            </div>
-          </div><!-- End Card Item -->
+            <!-- Reports -->
+            <!-- End Reports -->
 
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="600">
-            <div class="card">
-              <div class="card-img">
-                <img src="assets/img/warehousing-service.jpg" alt="" class="img-fluid">
-              </div>
-              <h3><a href="service-details.html" class="stretched-link">Warehousing</a></h3>
-              <p>Quas assumenda non occaecati molestiae. In aut earum sed natus eatae in vero. Ab modi quisquam aut nostrum unde et qui est non quo nulla</p>
-            </div>
-          </div><!-- End Card Item -->
+            <!-- Recent Sales -->
+            <!-- End Recent Sales -->
 
-        </div>
+            <!-- Top Selling -->
+            <!-- End Top Selling -->
 
-      </div>
-    </section><!-- End Services Section -->
-
-    <!-- ======= Call To Action Section ======= -->
-    <section id="call-to-action" class="call-to-action">
-      <div class="container" data-aos="zoom-out">
-
-        <div class="row justify-content-center">
-          <div class="col-lg-8 text-center">
-            <h3>Call To Action</h3>
-            <p> Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-            <a class="cta-btn" href="#">Call To Action</a>
           </div>
-        </div>
+        </div><!-- End Left side columns -->
+
+        <!-- Right side columns -->
+        <!-- End Right side columns -->
 
       </div>
-    </section><!-- End Call To Action Section -->
-
-    <!-- ======= Features Section ======= -->
-    <!-- End Features Section -->
-
-    <!-- ======= Pricing Section ======= -->
-    <!-- End Pricing Section -->
-
-    <!-- ======= Testimonials Section ======= -->
-    <!-- End Testimonials Section -->
-
-    <!-- ======= Frequently Asked Questions Section ======= -->
-    <!-- End Frequently Asked Questions Section -->
+    </section>
 
   </main><!-- End #main -->
 
   <!-- ======= Footer ======= -->
   <footer id="footer" class="footer">
-
-    <div class="container">
-      <div class="row gy-4">
-    <div class="container mt-4">
-      <div class="copyright">
-        &copy; Copyright <strong><span>Click Network</span></strong>. All Rights Reserved
-      </div>
-      <div class="credits">
-        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
-      </div>
+    <div class="copyright">
+      &copy; Copyright <strong><span>NiceAdmin</span></strong>. All Rights Reserved
     </div>
-
+    <div class="credits">
+      <!-- All the links in the footer should remain intact. -->
+      <!-- You can delete the links only if you purchased the pro version. -->
+      <!-- Licensing information: https://bootstrapmade.com/license/ -->
+      <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/ -->
+      Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+    </div>
   </footer><!-- End Footer -->
-  <!-- End Footer -->
 
-  <a href="#" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
-
-  <div id="preloader"></div>
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
