@@ -14,6 +14,7 @@ use Illuminate\Support\Str;
 use phpseclib\Crypt\RSA;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Collection;
+use App\Models\Plataforma;
 
 class AdminController extends Controller
 {
@@ -141,13 +142,20 @@ public function numberUsers(Request $request){
         ]));
 
         // Decodificar la respuesta JSON
-        $users = json_decode($response->getBody()->getContents());
+        $users = json_decode($response->getBody()->getContents(), true);
 
         // Contar el número de usuarios activos
         $activeUsersCount = count($users);
 
         return view('home', compact('activeUsersCount'));
     }
+}
+
+public function index(){
+    $plataformas = Plataforma::all();
+    $activeUsersCount = $plataformas->sum('perfiles_ocupados');
+
+    return view('plataformas', compact('activeUsersCount', 'plataformas'));
 }
     
 }

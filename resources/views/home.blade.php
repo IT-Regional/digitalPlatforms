@@ -18,7 +18,7 @@
       </li><!-- End Dashboard Nav -->
 
       <li class="nav-item">
-        <a class="nav-link " href="index.html">
+        <a class="nav-link " href="{{route('plataformas')}}">
           <i class="bi bi-grid"></i>
           <span>Plataformas</span>
         </a>
@@ -30,31 +30,10 @@
           <span>Clientes</span>
         </a>
       </li>
-      <!-- End Components Nav -->
-
-      <!-- End Forms Nav -->
-
-      <!-- End Charts Nav -->
-
-      <!-- End Icons Nav -->
-
-      <!-- End Profile Page Nav -->
-
-      <!-- End F.A.Q Page Nav -->
-
-      <!-- End Contact Page Nav -->
-
-      <!-- End Register Page Nav -->
-
-      <!-- End Login Page Nav -->
-
-      <!-- End Error 404 Page Nav -->
-
-      <!-- End Blank Page Nav -->
 
     </ul>
 
-  </aside><!-- End Sidebar-->
+  </aside>
 
   <main id="main" class="main">
 
@@ -129,28 +108,15 @@
               </div>
             </div>
 
-            <!-- Customers Card -->
-            <!-- End Customers Card -->
-
-            <!-- Reports -->
-            <!-- End Reports -->
-
-            <!-- Recent Sales -->
-            <!-- End Recent Sales -->
-
-            <!-- Top Selling -->
-            <!-- End Top Selling -->
-
           </div>
-        </div><!-- End Left side columns -->
-
-        <!-- Right side columns -->
-        <!-- End Right side columns -->
-
+        </div>
       </div>
+      {{-- {{dd($plataformas)}} --}}
     </section>
+    </div>
+  </main>
 
-  </main><!-- End #main -->
+
 
   <!-- ======= Footer ======= -->
   <footer id="footer" class="footer">

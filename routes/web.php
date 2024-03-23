@@ -25,4 +25,5 @@ Route::get('/', function () { return view('login'); });
 Route::post('/login', [LoginController::class, 'login'])-> name('login');
 Route::get('/home', [AdminController::class, 'numberUsers']) -> name('home');
 Route::get('/users', [AdminController::class,'customers'])->name('users');
+Route::get('plataformas',[AdminController::class,'index'])->name('plataformas');
 Route::get('/customer_info/{customerId}',[AdminController::class,'showCustomerInfo'])->name('customer_info');
