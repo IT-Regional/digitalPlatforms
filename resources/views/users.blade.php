@@ -20,15 +20,18 @@
                 </thead>
                 <tbody>
                     @foreach($users as $user)
-                        <tr>
-                            <td>{{ $user['description']}}</td>
-                            <td>{{ $user['customer_id']}}</td>
-                            <td>
-                                <button onclick="mostrarInformacionCliente({{ $user['customer_id'] }})" type="button" class="btn btn-primary">
-                                    <i class="ri-account-circle-line"></i>Ver Cliente
-                                </button>
-                            </td>
+                        @if ($user['status'] != 'disabled' && $user['id'] != '148' && $user['id'] != '33')
+                            <tr>
+                                <td>{{ $user['description']}}</td>
+                                <td>{{ $user['customer_id']}}</td>
+                                <td>{{ $user['id']}}</td>
+                                <td>
+                                    <button onclick="mostrarInformacionCliente({{ $user['customer_id'] }})" type="button" class="btn btn-primary">
+                                        <i class="ri-account-circle-line"></i>Ver Cliente
+                                    </button>
+                                </td>
                         </tr>
+                        @endif
                     @endforeach
                 </tbody>
             </table>

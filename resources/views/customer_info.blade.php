@@ -50,8 +50,8 @@
 }
 
 .bg-c-lite-green {
-        background: -webkit-gradient(linear, left top, right top, from(#f29263), to(#ee5a6f));
-    background: linear-gradient(to right, #ee5a6f, #f29263);
+     background: -webkit-gradient(linear, left top, right top, from(#6863f2), to(#2a4197));
+    background: linear-gradient(to right, #7d8ccb, #5242c8);
 }
 
 .user-profile {
@@ -156,12 +156,37 @@ p {
 
 </style>
 
-<div class="container">
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
+  <aside id="sidebar" class="sidebar">
+
+    <ul class="sidebar-nav" id="sidebar-nav">
+
+      <li class="nav-item">
+        <a class="nav-link " href="{{route('home')}}">
+          <i class="bi bi-grid"></i>
+          <span>Inicio</span>
+        </a>
+      </li><!-- End Dashboard Nav -->
+
+      <li class="nav-item">
+        <a class="nav-link " href="{{route('plataformas')}}">
+          <i class="bi bi-grid"></i>
+          <span>Plataformas</span>
+        </a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link " href="{{route('users')}}">
+          <i class="bi bi-grid"></i>
+          <span>Clientes</span>
+        </a>
+      </li>
+
+    </ul>
+
+  </aside>
+
+  <main class="main" id="main">
+    <div class="container">
     <div class="card user-card-full">
     <div class="row m-l-0 m-r-0">
         <div class="col-sm-4 bg-c-lite-green user-profile">
@@ -178,7 +203,7 @@ p {
                 <h6 class="m-b-20 p-b-5 b-b-default f-w-600">Informacion</h6>
                 <div class="row">
                     <div class="col-sm-6">
-                        <p class="m-b-10 f-w-600">Email</p>
+                        <p class="m-b-10 f-w-600">Correo</p>
                         <h6 class="text-muted f-w-400">{{ $customerInfo->email }}</h6>
                     </div>
                     <div class="col-sm-6">
@@ -195,8 +220,8 @@ p {
                         </div>
                     @endforeach
                     <div class="col-sm-6">
-                        <p class="m-b-10 f-w-600">Most Viewed</p>
-                        <h6 class="text-muted f-w-400">Dinoter husainm</h6>
+                        <p class="m-b-10 f-w-600">Balance</p>
+                        <h6 class="text-muted f-w-400">$0.00</h6>
                     </div>
                 </div>
                 <ul class="social-link list-unstyled m-t-40 m-b-10">
@@ -212,3 +237,4 @@ p {
 </div>
 </div>
 </div>
+  </main>

@@ -1,10 +1,35 @@
 @include('template')
 @include('nav')
-<br>
-<br>
-<br>
-<br>
-<div class="container">
+  <aside id="sidebar" class="sidebar">
+
+    <ul class="sidebar-nav" id="sidebar-nav">
+
+      <li class="nav-item">
+        <a class="nav-link " href="{{route('home')}}">
+          <i class="bi bi-grid"></i>
+          <span>Inicio</span>
+        </a>
+      </li><!-- End Dashboard Nav -->
+
+      <li class="nav-item">
+        <a class="nav-link " href="{{route('plataformas')}}">
+          <i class="bi bi-grid"></i>
+          <span>Plataformas</span>
+        </a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link " href="{{route('users')}}">
+          <i class="bi bi-grid"></i>
+          <span>Clientes</span>
+        </a>
+      </li>
+
+    </ul>
+
+  </aside>
+  <main class="main" id="main">
+    <div class="container">
     <section class="section dashboard">
         <div class="row">
 
@@ -55,4 +80,5 @@
         </div>
         </div>
 </section>
-</div>
+</div>  
+  </main>

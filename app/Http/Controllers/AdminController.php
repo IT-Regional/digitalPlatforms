@@ -79,7 +79,7 @@ class AdminController extends Controller
     ->json();
 
     $page = LengthAwarePaginator::resolveCurrentPage();
-    $perPage = 10; // Cambia 10 por el número de usuarios que deseas mostrar por página
+    $perPage = 30; // Cambia 10 por el número de usuarios que deseas mostrar por página
 
     $users = collect($users);
 
