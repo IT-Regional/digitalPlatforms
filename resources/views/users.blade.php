@@ -1,12 +1,36 @@
 @include('template')
 @include('nav')
 <!-- resources/views/users.blade.php -->
-<br>
-<br>
-<br>
-<br>
-<br>
-    <section id="horizontal-pricing" class="horizontal-pricing pt-0">
+  <aside id="sidebar" class="sidebar">
+
+    <ul class="sidebar-nav" id="sidebar-nav">
+
+      <li class="nav-item">
+        <a class="nav-link " href="{{route('home')}}">
+          <i class="bi bi-grid"></i>
+          <span>Inicio</span>
+        </a>
+      </li><!-- End Dashboard Nav -->
+
+      <li class="nav-item">
+        <a class="nav-link " href="{{route('plataformas')}}">
+          <i class="bi bi-grid"></i>
+          <span>Plataformas</span>
+        </a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link " href="{{route('users')}}">
+          <i class="bi bi-grid"></i>
+          <span>Clientes</span>
+        </a>
+      </li>
+
+    </ul>
+
+  </aside>
+    <main class="main" id="main">
+        <section id="horizontal-pricing" class="horizontal-pricing pt-0">
         <div class="container">
             <table class="table data">
                 <thead>
@@ -37,10 +61,10 @@
             </table>
         </div>
     </section>
-
     <div class="container">
         {{ $users->links() }}
     </div>
+    </main>
 
     <!-- resources/views/users.blade.php -->
 <script>
