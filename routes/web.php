@@ -5,6 +5,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\PlataformaController;
+use App\Http\Controllers\CuentaController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -28,6 +29,8 @@ Route::get('/home', [AdminController::class, 'numberUsers']) -> name('home');
 Route::get('/users', [AdminController::class,'customers'])->name('users');
 Route::get('plataformas',[AdminController::class,'index'])->name('plataformas');
 Route::get('/plataformas/create', [PlataformaController::class, 'create'])->name('plataformas.create');
+Route::get('/cuentas/create', [CuentaController::class, 'create'])->name('cuentas.create');
 Route::get('/customer_info/{customerId}',[AdminController::class,'showCustomerInfo'])->name('customer_info');
 Route::resource('/plataformas_create', PlataformaController::class);
 Route::post('/plataformas', [PlataformaController::class, 'store'])->name('plataformas.store');
+Route::post('/cuentas', [CuentaController::class, 'store'])->name('cuentas.store');
