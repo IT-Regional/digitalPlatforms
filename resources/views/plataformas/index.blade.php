@@ -1,5 +1,6 @@
 @include('template')
 @include('nav')
+<!-- resources/views/users.blade.php -->
   <aside id="sidebar" class="sidebar">
 
     <ul class="sidebar-nav" id="sidebar-nav">
@@ -10,22 +11,12 @@
           <span>Inicio</span>
         </a>
       </li><!-- End Dashboard Nav -->
+
       <li class="nav-item">
-        <a class="nav-link collapsed" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="#">
-          <i class="ri-contacts-line"></i><span>Clientes</span><i class="bi bi-chevron-down ms-auto"></i>
+        <a class="nav-link " href="{{route('plataformas')}}">
+          <i class="bi bi-grid"></i>
+          <span>Plataformas</span>
         </a>
-        <ul id="forms-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-          <li>
-            <a href="{{route('users')}}">
-              <i class="bi bi-circle"></i><span>Ver Clientes</span>
-            </a>
-          </li>
-          <li>
-            <a href="{% url 'users:view_admins' %}">
-              <i class="bi bi-circle"></i><span>Agregar Clientes</span>
-            </a>
-          </li>
-        </ul>
       </li>
       <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
@@ -48,6 +39,7 @@
     </ul>
 
   </aside>
+
   <main class="main" id="main">
     <div class="container">
     <section class="section dashboard">
@@ -60,7 +52,6 @@
                 <!-- Platform Card -->
                 <div class="col-xxl-4 col-md-6">
                     <div class="card info-card customers-card">
-                        
                             <div class="card-body">
                                 <div class="d-flex align-items-center">
                                     <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">

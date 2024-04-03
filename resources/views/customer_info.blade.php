@@ -180,6 +180,29 @@ p {
           <span>Clientes</span>
         </a>
       </li>
+      <li class="nav-item">
+        <a class="nav-link " href="{{route('plataformas')}}">
+          <i class="bi bi-grid"></i>
+          <span>Plataformas</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
+          <i class="ri-base-station-line"></i><span>Plataformas</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="components-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav">
+          <li>
+            <a href="{{route('plataformas')}}">
+              <i class="bi bi-circle"></i><span>Ver Plataformas</span>
+            </a>
+          </li>
+          <li>
+            <a href="{% url 'map:view_clusters' %}">
+              <i class="bi bi-circle"></i><span>Agregar Plataformas</span>
+            </a>
+          </li>
+        </ul>
+    </li>
 
     </ul>
 

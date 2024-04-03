@@ -8,4 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class Plataforma extends Model
 {
     use HasFactory;
+    protected $fillable = ['nombre', 'perfiles_disponibles', 'perfiles_ocupados'];
 }

@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\PlataformaController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -26,4 +27,7 @@ Route::post('/login', [LoginController::class, 'login'])-> name('login');
 Route::get('/home', [AdminController::class, 'numberUsers']) -> name('home');
 Route::get('/users', [AdminController::class,'customers'])->name('users');
 Route::get('plataformas',[AdminController::class,'index'])->name('plataformas');
+Route::get('/plataformas/create', [PlataformaController::class, 'create'])->name('plataformas.create');
 Route::get('/customer_info/{customerId}',[AdminController::class,'showCustomerInfo'])->name('customer_info');
+Route::resource('/plataformas_create', PlataformaController::class);
+Route::post('/plataformas', [PlataformaController::class, 'store'])->name('plataformas.store');
