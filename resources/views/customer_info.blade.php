@@ -166,25 +166,22 @@ p {
           <span>Inicio</span>
         </a>
       </li><!-- End Dashboard Nav -->
-
       <li class="nav-item">
-        <a class="nav-link " href="{{route('plataformas')}}">
-          <i class="bi bi-grid"></i>
-          <span>Plataformas</span>
+        <a class="nav-link collapsed" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="#">
+          <i class="ri-contacts-line"></i><span>Clientes</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
-      </li>
-
-      <li class="nav-item">
-        <a class="nav-link " href="{{route('users')}}">
-          <i class="bi bi-grid"></i>
-          <span>Clientes</span>
-        </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link " href="{{route('plataformas')}}">
-          <i class="bi bi-grid"></i>
-          <span>Plataformas</span>
-        </a>
+        <ul id="forms-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+          <li>
+            <a href="{{route('users')}}">
+              <i class="bi bi-circle"></i><span>Ver Clientes</span>
+            </a>
+          </li>
+          <li>
+            <a href="{% url 'users:view_admins' %}">
+              <i class="bi bi-circle"></i><span>Agregar Clientes</span>
+            </a>
+          </li>
+        </ul>
       </li>
       <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
@@ -199,6 +196,40 @@ p {
           <li>
             <a href="{% url 'map:view_clusters' %}">
               <i class="bi bi-circle"></i><span>Agregar Plataformas</span>
+            </a>
+          </li>
+        </ul>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#cuenta-nav" data-bs-toggle="collapse" href="#">
+          <i class="ri-base-station-line"></i><span>Cuentas</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="cuenta-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav">
+          <li>
+            <a href="{{route('plataformas')}}">
+              <i class="bi bi-circle"></i><span>Ver Cuentas</span>
+            </a>
+          </li>
+          <li>
+            <a href="{{route('cuentas.create')}}">
+              <i class="bi bi-circle"></i><span>Agregar Cuenta</span>
+            </a>
+          </li>
+        </ul>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#perfiles-nav" data-bs-toggle="collapse" href="#">
+          <i class="ri-base-station-line"></i><span>Perfiles</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="perfiles-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav">
+          <li>
+            <a href="{{route('plataformas')}}">
+              <i class="bi bi-circle"></i><span>Ver Perfiles</span>
+            </a>
+          </li>
+          <li>
+            <a href="{{route('perfiles.create')}}">
+              <i class="bi bi-circle"></i><span>Agregar Perfil</span>
             </a>
           </li>
         </ul>

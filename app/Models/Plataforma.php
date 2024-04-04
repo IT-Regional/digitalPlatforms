@@ -9,4 +9,9 @@ class Plataforma extends Model
 {
     use HasFactory;
     protected $fillable = ['nombre', 'perfiles_disponibles', 'perfiles_ocupados'];
+
+    public function cuentas()
+    {
+        return $this->hasMany(Cuenta::class);
+    }
 }

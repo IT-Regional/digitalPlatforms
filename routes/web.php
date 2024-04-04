@@ -6,6 +6,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\PlataformaController;
 use App\Http\Controllers\CuentaController;
+use App\Http\Controllers\PerfilController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -34,3 +35,7 @@ Route::get('/customer_info/{customerId}',[AdminController::class,'showCustomerIn
 Route::resource('/plataformas_create', PlataformaController::class);
 Route::post('/plataformas', [PlataformaController::class, 'store'])->name('plataformas.store');
 Route::post('/cuentas', [CuentaController::class, 'store'])->name('cuentas.store');
+Route::get('/perfiles/create', [PerfilController::class, 'create'])->name('perfiles.create');
+Route::post('/perfiles', [PerfilController::class, 'store'])->name('perfiles.store');
+Route::get('/plataformas/{plataforma}/cuentas', 'App\Http\Controllers\PlataformaController@cuentas')->name('plataformas.cuentas');
+

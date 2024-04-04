@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Cuenta;
+use App\Models\Plataforma;
 
 class CuentaController extends Controller
 {
@@ -15,7 +16,8 @@ class CuentaController extends Controller
     }
 
     public function create(){
-        return view('cuentas.createAccount');
+        $plataformas = Plataforma::all();
+        return view('cuentas.createAccount', compact('plataformas'));
     }
 
     public function store(Request $request){
