@@ -176,11 +176,6 @@ p {
               <i class="bi bi-circle"></i><span>Ver Clientes</span>
             </a>
           </li>
-          <li>
-            <a href="{% url 'users:view_admins' %}">
-              <i class="bi bi-circle"></i><span>Agregar Clientes</span>
-            </a>
-          </li>
         </ul>
       </li>
       <li class="nav-item">
@@ -194,7 +189,7 @@ p {
             </a>
           </li>
           <li>
-            <a href="{% url 'map:view_clusters' %}">
+            <a href="{{route('plataformas.create')}}">
               <i class="bi bi-circle"></i><span>Agregar Plataformas</span>
             </a>
           </li>

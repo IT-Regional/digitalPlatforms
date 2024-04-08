@@ -11,7 +11,7 @@
     <ul class="sidebar-nav" id="sidebar-nav">
 
       <li class="nav-item">
-        <a class="nav-link " href="{{route('home')}}">
+        <a class="nav-link collapsed" href="{{route('home')}}">
           <i class="bi bi-grid"></i>
           <span>Inicio</span>
         </a>
@@ -24,11 +24,6 @@
           <li>
             <a href="{{route('users')}}">
               <i class="bi bi-circle"></i><span>Ver Clientes</span>
-            </a>
-          </li>
-          <li>
-            <a href="{% url 'users:view_admins' %}">
-              <i class="bi bi-circle"></i><span>Agregar Clientes</span>
             </a>
           </li>
         </ul>

@@ -1,22 +1,143 @@
-<form method="POST" action="{{ route('perfiles.store') }}">
-    @csrf
-    <select name="cuenta_id" id="cuenta_id">
-        @foreach($cuentas as $cuenta)
-            <option value="{{ $cuenta->id }}">{{ $cuenta->correo }}</option>
-        @endforeach
-    </select>
-    <br>
-    <label for="nombre">Nombre:</label>
-    <input type="text" id="nombre" name="nombre" required><br>
+@include('template')
+@include('nav')
 
-    <label for="contraseña">Contraseña:</label>
-    <input type="password" id="contraseña" name="contraseña" required><br>
+  <aside id="sidebar" class="sidebar">
 
-    <label for="fecha_inicio">Fecha de inicio:</label>
-    <input type="date" id="fecha_inicio" name="fecha_inicio" required><br>
+    <ul class="sidebar-nav" id="sidebar-nav">
 
-    <label for="pin_usuario">PIN de usuario:</label>
-    <input type="number" id="pin_usuario" name="pin_usuario" required><br>
+      <li class="nav-item">
+        <a class="nav-link " href="{{route('home')}}">
+          <i class="bi bi-grid"></i>
+          <span>Inicio</span>
+        </a>
+      </li><!-- End Dashboard Nav -->
+      <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="#">
+          <i class="ri-contacts-line"></i><span>Clientes</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="forms-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+          <li>
+            <a href="{{route('users')}}">
+              <i class="bi bi-circle"></i><span>Ver Clientes</span>
+            </a>
+          </li>
+        </ul>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
+          <i class="ri-base-station-line"></i><span>Plataformas</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="components-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav">
+          <li>
+            <a href="{{route('plataformas')}}">
+              <i class="bi bi-circle"></i><span>Ver Plataformas</span>
+            </a>
+          </li>
+          <li>
+            <a href="{{route('plataformas.create')}}">
+              <i class="bi bi-circle"></i><span>Agregar Plataformas</span>
+            </a>
+          </li>
+        </ul>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#cuenta-nav" data-bs-toggle="collapse" href="#">
+          <i class="ri-base-station-line"></i><span>Cuentas</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="cuenta-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav">
+          <li>
+            <a href="{{route('plataformas')}}">
+              <i class="bi bi-circle"></i><span>Ver Cuentas</span>
+            </a>
+          </li>
+          <li>
+            <a href="{{route('cuentas.create')}}">
+              <i class="bi bi-circle"></i><span>Agregar Cuenta</span>
+            </a>
+          </li>
+        </ul>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#perfiles-nav" data-bs-toggle="collapse" href="#">
+          <i class="ri-base-station-line"></i><span>Perfiles</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="perfiles-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav">
+          <li>
+            <a href="{{route('plataformas')}}">
+              <i class="bi bi-circle"></i><span>Ver Perfiles</span>
+            </a>
+          </li>
+          <li>
+            <a href="{{route('perfiles.create')}}">
+              <i class="bi bi-circle"></i><span>Agregar Perfil</span>
+            </a>
+          </li>
+        </ul>
+    </li>
 
-    <button type="submit">Guardar</button>
-</form>
+    </ul>
+
+  </aside>
+
+  <main class="main" id="main">
+
+    <form method="POST" action="{{ route('perfiles.store') }}">
+      <div class="container">
+        <section class="section register min-vh-100 d-flex flex-column align-items-center justify-content-center py-4">
+          <div class="container">
+            <div class="row justify-content-center">
+              <div class="col-lg-4 col-md-6 d-flex flex-column align-items-center justify-content-center">
+                <div class="d-flex justify-content-center py-4">
+                  <a href="index.html" class="logo d-flex align-items-center w-auto">
+                  </a>
+                </div><!-- End Logo -->
+
+                <div class="card mb-3">
+
+                  <div class="card-body">
+
+                    <form class="row g-3 needs-validation" method="POST" action="{{ route('perfiles.store') }}">
+                      @csrf
+                      <label for="yourUsername" class="form-label">Cuenta de la plataforma</label>
+                      <select name="cuenta_id" id="cuenta_id">
+                            @foreach($cuentas as $cuenta)
+                                <option value="{{ $cuenta->id }}">{{ $cuenta->correo }}</option>
+                            @endforeach
+                        </select>
+                      <div class="col-12">
+                        <label for="yourUsername" class="form-label">Nombre del perfil</label>
+                        <div class="input-group has-validation">
+                          <input type="text" name="nombre" class="form-control" id="yourUsername" required>
+                        </div>
+                      </div>
+
+                      <div class="col-12">
+                        <label for="yourPassword" class="form-label">Contraseña</label>
+                        <input type="text" name="contraseña" class="form-control" id="yourPassword" required>
+                      </div>
+                      <div class="col-12">
+                        <label for="yourPassword" class="form-label">Fecha de Inicio</label>
+                        <input type="date" name="fecha_inicio" class="form-control" id="yourPassword" required>
+                      </div>
+                      <div class="col-12">
+                        <label for="yourPassword" class="form-label">Pin de Usuario</label>
+                        <input type="number" name="pin_usuario" class="form-control" id="yourPassword" required>
+                      </div>
+                      <div class="col-12">
+                        <button class="btn btn-primary w-100" type="submit">Registrar</button>
+                      </div>
+                    </form>
+
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+        </section>
+
+      </div>
+  </main>
+
+

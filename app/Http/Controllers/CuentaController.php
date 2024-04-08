@@ -24,13 +24,11 @@ class CuentaController extends Controller
         $request->validate([
             'plataforma_id' => 'required|integer',
             'correo' => 'required|email',
-            'n_perfiles'=>'required|integer',
         ]);
 
         Cuenta::create([
         'plataforma_id' => $request->plataforma_id,
         'correo' => $request->correo,
-        'n_perfiles'=> $request->n_perfiles,
     ]);
 
      return redirect()->route('cuentas.create')->with('success', 'Cuenta creada correctamente');

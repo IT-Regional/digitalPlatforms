@@ -1,38 +1,114 @@
 @include('template')
 @include('nav')
 
+<aside id="sidebar" class="sidebar">
+
+    <ul class="sidebar-nav" id="sidebar-nav">
+
+      <li class="nav-item">
+        <a class="nav-link " href="{{route('home')}}">
+          <i class="bi bi-grid"></i>
+          <span>Inicio</span>
+        </a>
+      </li><!-- End Dashboard Nav -->
+      <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="#">
+          <i class="ri-contacts-line"></i><span>Clientes</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="forms-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+          <li>
+            <a href="{{route('users')}}">
+              <i class="bi bi-circle"></i><span>Ver Clientes</span>
+            </a>
+          </li>
+        </ul>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
+          <i class="ri-base-station-line"></i><span>Plataformas</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="components-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav">
+          <li>
+            <a href="{{route('plataformas')}}">
+              <i class="bi bi-circle"></i><span>Ver Plataformas</span>
+            </a>
+          </li>
+          <li>
+            <a href="{{route('plataformas.create')}}">
+              <i class="bi bi-circle"></i><span>Agregar Plataformas</span>
+            </a>
+          </li>
+        </ul>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#cuenta-nav" data-bs-toggle="collapse" href="#">
+          <i class="ri-base-station-line"></i><span>Cuentas</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="cuenta-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav">
+          <li>
+            <a href="{{route('plataformas')}}">
+              <i class="bi bi-circle"></i><span>Ver Cuentas</span>
+            </a>
+          </li>
+          <li>
+            <a href="{{route('cuentas.create')}}">
+              <i class="bi bi-circle"></i><span>Agregar Cuenta</span>
+            </a>
+          </li>
+        </ul>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#perfiles-nav" data-bs-toggle="collapse" href="#">
+          <i class="ri-base-station-line"></i><span>Perfiles</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="perfiles-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav">
+          <li>
+            <a href="{{route('plataformas')}}">
+              <i class="bi bi-circle"></i><span>Ver Perfiles</span>
+            </a>
+          </li>
+          <li>
+            <a href="{{route('perfiles.create')}}">
+              <i class="bi bi-circle"></i><span>Agregar Perfil</span>
+            </a>
+          </li>
+        </ul>
+    </li>
+
+    </ul>
+
+  </aside>
+
 <main class="main" id="main">
     <section class="section">
-        <div class="row">
-            <div class="col-lg-6">
-                <div class="card">
-                    @foreach ($cuentas as $cuenta)
-                    <div class="card-body">
-                        <h5 class="card-title">
-                            Cuenta: {{ $cuenta->correo }}
-                        </h5>
-                        @foreach ($cuenta->perfiles as $perfil)
-                            <div class="accordion" id="accordionExample">
-                                <div class="accordion-item">
-                                    <h2 class="accordion-header" id="headingOne">
-                                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                        Accordion Item #1
-                                        </button>
-                                    </h2>
-                                    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                                        <div class="accordion-body">
-                                            {{ $perfil->nombre }}
-                                            {{ $perfil->contraseña }}
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            @endforeach
-                    </div>
-                    @endforeach
+      <div class="row">
+        <div class="col-lg-6">
+            @foreach ($cuentas as $cuenta)
+              <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">
+                      Cuenta: {{ $cuenta->correo }}
+                    </h5>
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <td class="col"><b>Nombre del Perfil</b></td>
+                                <td class="col"><b>Pin del Perfil</b></td>
+                            </tr>
+                        </thead>
+                          <tbody>
+                            @foreach ($cuenta->perfiles as $perfil)
+                              <tr>
+                                    <td>{{ $perfil->nombre }}</td>
+                                    <td>{{ $perfil->pin_usuario }}</td>
+                              </tr>
+                            @endforeach  
+                        </tbody>
+                    </table>
                 </div>
-            </div>
+              </div>
+            @endforeach  
+          </div>
         </div>
     </section>
-
 </main>
