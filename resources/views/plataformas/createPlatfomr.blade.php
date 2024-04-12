@@ -109,10 +109,10 @@
                         <label for="yourPassword" class="form-label">Perfiles Disponibles</label>
                         <input type="number" name="perfiles_disponibles" class="form-control" id="yourPassword" required>
                       </div>
-                      <div class="col-12">
+                      {{-- <div class="col-12">
                         <label for="yourPassword" class="form-label">Perfiles Ocupados</label>
                         <input type="number" name="perfiles_ocupados" class="form-control" id="yourPassword" required>
-                      </div>
+                      </div> --}}
                       <div class="col-12">
                         <button class="btn btn-primary w-100" type="submit">Registrar</button>
                       </div>

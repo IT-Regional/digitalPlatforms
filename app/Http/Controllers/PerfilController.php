@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Cuenta;
 use App\Models\Perfil;
+use App\Models\Plataforma;
 
 class PerfilController extends Controller
 {
@@ -21,9 +22,11 @@ class PerfilController extends Controller
         $cuentas = Cuenta::withCount('perfiles')->get()->filter(function ($cuenta) {
             return $cuenta->perfiles_count < 5;
         });
+        $clientes = ['click', 'hotel', 'tercero'];
+        $plataformas = Plataforma::all();
 
 
-        return view('perfiles.createProfile', compact('cuentas'));
+        return view('perfiles.createProfile', compact('cuentas','clientes', 'plataformas'));
     }
 
     public function store(Request $request)

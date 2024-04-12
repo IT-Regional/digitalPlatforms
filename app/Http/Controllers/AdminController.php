@@ -146,15 +146,14 @@ public function numberUsers(Request $request){
 
         // Contar el número de usuarios activos
         $activeUsersCount = count($users);
-
-        return view('home', compact('activeUsersCount'));
+        $plataformasDisponibles = Plataforma::count();
+        return view('home', compact('activeUsersCount', 'plataformasDisponibles'));
     }
 }
 
 public function index(){
     $plataformas = Plataforma::all();
     $activeUsersCount = $plataformas->sum('perfiles_ocupados');
-
     return view('plataformas', compact('activeUsersCount', 'plataformas'));
 }
     

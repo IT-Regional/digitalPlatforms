@@ -80,10 +80,12 @@
   </aside>
 
 <main class="main" id="main">
-    <section class="section">
+    <section class="section dashboard">
       <div class="row">
-        <div class="col-lg-6">
+        <div class="col-lg-20">
+            <div class="row">
             @foreach ($cuentas as $cuenta)
+              <div class="col-xxl-4 col-md-15">
               <div class="card">
                 <div class="card-body">
                     <h5 class="card-title">
@@ -92,23 +94,31 @@
                     <table class="table table-bordered">
                         <thead>
                             <tr>
+                                <td class="col"><b>Fecha de Inicio</b></td>
                                 <td class="col"><b>Nombre del Perfil</b></td>
                                 <td class="col"><b>Pin del Perfil</b></td>
+                                <td class="col"><b>Tipo de Cliente</b></td>
+                                <td class="col"><b>Id Cliente</b></td>
                             </tr>
                         </thead>
                           <tbody>
                             @foreach ($cuenta->perfiles as $perfil)
                               <tr>
+                                    <td>{{ $perfil->fecha_inicio}}</td>
                                     <td>{{ $perfil->nombre }}</td>
                                     <td>{{ $perfil->pin_usuario }}</td>
+                                    <td>{{ $perfil->cliente }}</td>
+                                    <td>{{ $perfil->id }}</td>
                               </tr>
                             @endforeach  
                         </tbody>
                     </table>
                 </div>
               </div>
+              </div>
             @endforeach  
           </div>
+        </div>
         </div>
     </section>
 </main>

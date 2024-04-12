@@ -98,12 +98,27 @@
 
                     <form class="row g-3 needs-validation" method="POST" action="{{ route('perfiles.store') }}">
                       @csrf
-                      <label for="yourUsername" class="form-label">Cuenta de la plataforma</label>
+                      <div class="col-12">
+                        <label for="cuenta_id" class="form-label">Cuenta de la plataforma</label>
+                        <select name="cuenta_id" id="cuenta_id" class="form-select" onchange="getCuentasByPlataforma()">
+                            @foreach($plataformas as $plataforma)
+                                <option value="{{ $plataforma->id }}">{{ $plataforma->nombre }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+
+                    <div class="col-12">
+                        <label for="correo" class="form-label">Correo</label>
+                        <select name="correo" id="correo" class="form-select">
+                            <!-- Correos se cargarán dinámicamente aquí -->
+                        </select>
+                    </div>
+                      {{-- <label for="yourUsername" class="form-label">Cuenta de la plataforma</label>
                       <select name="cuenta_id" id="cuenta_id">
                             @foreach($cuentas as $cuenta)
                                 <option value="{{ $cuenta->id }}">{{ $cuenta->correo }}</option>
                             @endforeach
-                        </select>
+                        </select> --}}
                       <div class="col-12">
                         <label for="yourUsername" class="form-label">Nombre del perfil</label>
                         <div class="input-group has-validation">
@@ -124,6 +139,14 @@
                         <input type="number" name="pin_usuario" class="form-control" id="yourPassword" required>
                       </div>
                       <div class="col-12">
+                        <label for="cliente" class="form-label">Cliente</label>
+                        <select name="cliente" id="cliente">
+                            @foreach($clientes as $cliente)
+                                <option value="{{ $cliente }}">{{ $cliente }}</option>
+                            @endforeach
+                        </select>
+                      </div>
+                      <div class="col-12">
                         <button class="btn btn-primary w-100" type="submit">Registrar</button>
                       </div>
                     </form>
@@ -140,4 +163,20 @@
       </div>
   </main>
 
-
+<script>
+    function getCuentasByPlataforma() {
+        var plataformaId = document.getElementById('cuenta_id').value;
+        fetch(`/get-cuentas-by-plataforma/${plataformaId}`)
+            .then(response => response.json())
+            .then(data => {
+                var selectCorreo = document.getElementById('correo');
+                selectCorreo.innerHTML = '';
+                data.forEach(cuenta => {
+                    var option = document.createElement('option');
+                    option.value = cuenta.id;
+                    option.textContent = cuenta.correo;
+                    selectCorreo.appendChild(option);
+                });
+            });
+    }
+</script>

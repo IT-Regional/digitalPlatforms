@@ -19,14 +19,6 @@ class PlataformaController extends Controller
     return view('plataformas.createPlatfomr');
 }
 
-/* public function cuentas($plataformaId)
-{
-    $plataforma = Plataforma::findOrFail($plataformaId);
-    $cuentas = $plataforma->cuentas;
-    
-    return view('plataformas.cuentas', compact('cuentas'));
-} */
-
 public function cuentas($plataformaId)
 {
     $plataforma = Plataforma::findOrFail($plataformaId);
@@ -51,5 +43,14 @@ public function store(Request $request)
 
     return redirect()->route('plataformas.create')->with('success', 'Plataforma creada correctamente');
 }
+
+public function getCuentasByPlataforma($plataformaId)
+{
+    $plataforma = Plataforma::findOrFail($plataformaId);
+    $cuentas = $plataforma->cuentas;
+    
+    return response()->json($cuentas);
+}
+
 
 }
